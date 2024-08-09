@@ -1,4 +1,4 @@
-import { conectar } from "./database"
+import { conectar } from "./database.js"
 
 export const mostrarTareas = async(req, res) =>{
     const conexion = await conectar();

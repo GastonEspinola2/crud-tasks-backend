@@ -9,11 +9,13 @@ import {
     mostrarTarea,
     agregarTarea
 } from "./controllers.js"
+import { validacionesAgregarTask, validacionesMostrarTask } from "./validaciones.js"
+import { aplicarValidaciones } from "./aplicarValidaciones.js"
 
 
 taskRouter.get("/",mostrarTareas)
-taskRouter.post("/",agregarTarea)
-taskRouter.get("/:id",mostrarTarea)
+taskRouter.post("/",validacionesAgregarTask,aplicarValidaciones,agregarTarea)
+taskRouter.get("/:id",validacionesMostrarTask,aplicarValidaciones,mostrarTarea)
 taskRouter.put("/:id",cambiarTarea)
 taskRouter.delete("/:id",borrarTarea)
 
