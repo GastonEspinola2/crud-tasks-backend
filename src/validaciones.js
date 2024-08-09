@@ -15,3 +15,20 @@ export const validacionesMostrarTask = [
     param("id")
         .isInt().withMessage("El id colocado debe ser un numero")
 ]
+
+export const validacionesBorrarTask = [
+    param("id")
+        .isInt().withMessage("El id colocado debe ser un numero")
+]
+
+export const validacionesTasksActualizar = [
+    body("title")
+        .optional()
+        .isString().withMessage("El titulo debe ser un string"),
+    body('description')
+        .optional()
+        .isString().withMessage("La descripcion debe ser un string"),
+    body('isComplete')
+        .optional()
+        .isBoolean().withMessage("isComplete debe ser un boolean")
+]
