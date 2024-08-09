@@ -9,4 +9,4 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(require('./routes'))
 
-app.listen(4000, ()=>{console.log("Serivdor funcionando en el puerto 4000")})
+app.listen(4000, ()=>{console.log("Servidor funcionando en el puerto 4000")})
