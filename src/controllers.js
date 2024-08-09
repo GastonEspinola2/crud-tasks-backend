@@ -1,7 +1,6 @@
-const ctrl = {}
-const conectar = require("./database")
+import { conectar } from "./database"
 
-ctrl.mostrarTareas = async(req, res) =>{
+export const mostrarTareas = async(req, res) =>{
     const conexion = await conectar();
     const [consulta] = await conexion.query("SELECT * FROM TASKS")
     if(consulta.length==0){
@@ -11,7 +10,7 @@ ctrl.mostrarTareas = async(req, res) =>{
     }
         }
 
-ctrl.agregarTarea = async(req, res) =>{
+export const agregarTarea = async(req, res) =>{
     const conexion = await conectar();
     const { title, description, isComplete } = req.body;
     if(typeof(title)!="string" || typeof(description)!="string" || typeof(isComplete)!="boolean"){
@@ -22,7 +21,7 @@ ctrl.agregarTarea = async(req, res) =>{
     }
 }
 
-ctrl.mostrarTarea = async(req, res) =>{
+export const mostrarTarea = async(req, res) =>{
     const conexion = await conectar();
     const id = parseInt(req.params.id);
     const [consulta] = await conexion.query(`SELECT * FROM TASKS WHERE id = ${id}`)
@@ -33,7 +32,7 @@ ctrl.mostrarTarea = async(req, res) =>{
     }
 }
 
-ctrl.cambiarTarea = async(req, res) =>{
+export const cambiarTarea = async(req, res) =>{
     const conexion = await conectar();
     const id = parseInt(req.params.id);
     const {title, description, isComplete} = req.body;
@@ -46,7 +45,7 @@ ctrl.cambiarTarea = async(req, res) =>{
     }
 }
 
-ctrl.borrarTarea = async(req, res) =>{
+export const borrarTarea = async(req, res) =>{
     const conexion = await conectar();
     const id = parseInt(req.params.id);
     const [consulta] = await conexion.query(`SELECT * FROM TASKS WHERE id = ${id}`);
@@ -57,5 +56,3 @@ ctrl.borrarTarea = async(req, res) =>{
     res.send("La tarea se borro con exito");
     }
 }
-
-module.exports = ctrl;

@@ -1,4 +1,4 @@
-const mysql = require("mysql2/promise")
+import { createConnection } from "mysql2/promise"
 
 const conectar = async(req, res) =>{
     return await mysql.createConnection({
@@ -8,4 +8,4 @@ const conectar = async(req, res) =>{
         database: "tasks_db"
     })
 }
-module.exports = conectar;
+export { conectar }
