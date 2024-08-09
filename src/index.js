@@ -11,5 +11,5 @@ app.use(json());
 app.use("/tasks", taskRouter)
 
 app.listen(4000, ()=>{
-    console.log("Serivdor funcionando en el puerto 4000")
+    console.log("Servidor funcionando en el puerto 4000")
 })
