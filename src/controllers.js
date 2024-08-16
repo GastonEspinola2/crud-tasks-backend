@@ -4,9 +4,9 @@ export const mostrarTareas = async(req, res) =>{
     const conexion = await conectar();
     const [consulta] = await conexion.query("SELECT * FROM tasks")
     if(consulta.length==0){
-        res.send("No hay tareas disponibles")
+        res.json("No hay tareas disponibles")
     }else{
-    res.send(consulta);
+    res.json(consulta);
     }
         }
 
